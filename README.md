@@ -1,2 +1,2 @@
 # code-sensei
-Context-Enhanced Code Search Engine
+Develop a sophisticated code search engine that transcends traditional keyword-based queries. This innovative platform delves into the intricate context of code, comprehending both its functional intricacies and structural composition. By harnessing this contextual understanding, developers can swiftly and effectively unearth pertinent code snippets, revolutionizing the way they explore and utilize code resources."
