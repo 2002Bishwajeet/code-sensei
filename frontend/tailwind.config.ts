@@ -13,6 +13,22 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        gray: "#04101d",
+        aqua: "#00eaf9",
+        white: "#fff",
+        dodgerblue: "rgba(0, 137, 237, 0.7)",
+        whitesmoke: "#ebebeb",
+      },
+      spacing: {},
+      fontFamily: {
+        "sf-pro": "'SF Pro'",
+      },
+    },
+    fontSize: {
+      "21xl": "40px",
+      inherit: "inherit",
+    },
     },
     colors:{
       transparent: 'transparent',
@@ -22,8 +38,8 @@ const config: Config = {
       'skyblue': '#00EAF9',
       'white': '#ffffff',
       'textGrey': '#ebebeb'
-    }
-  },
+    },
+  
   plugins: [],
 }
 export default config
