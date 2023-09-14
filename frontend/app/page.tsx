@@ -1,9 +1,15 @@
 import Image from 'next/image'
+import "@radix-ui/themes/styles.css";
+import header from './components /header';
 
 export default function Home() {
   return (
-    <h1>Hello</h1>
-    // <div className="relative bg-gray w-full h-[1117px] overflow-hidden text-left text-[60px] text-white font-sf-pro">
+    <div>
+      <header/>
+    </div>
+  )
+}
+// <div className="relative bg-gray w-full h-[1117px] overflow-hidden text-left text-[60px] text-white font-sf-pro">
     //   <div className="absolute top-[304px] left-[159px] inline-block w-[813px] h-[401px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]">
     //     <p className="m-0 font-semibold">{`CONTEXT-ENHANCED `}</p>
     //     <p className="m-0 text-[70px]">
@@ -45,5 +51,3 @@ export default function Home() {
     //   />
     //   <div className="absolute top-[967px] left-[608px] rounded-[50%] bg-aqua [filter:blur(1000px)] w-[512px] h-[495px]" />
     // </div>
-  )
-}

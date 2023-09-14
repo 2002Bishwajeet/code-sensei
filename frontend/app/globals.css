@@ -1,13 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=SF+Pro:wght@400;500;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply leading-[normal] m-0;
-}
-*,
-::before,
-::after {
-  border-width: 0;
+body{
+  padding: 5rem;
 }
