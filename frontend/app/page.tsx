@@ -8,8 +8,8 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <div className="flex py-24">
-        <div className="pr-24">
+      <div className="flex py-20">
+        <div className="pr-16">
           <p className=" text-white text-4xl font-semibold">
             <span>CONTEXT-ENHANCED</span>
           </p>
@@ -18,17 +18,19 @@ export default function Home() {
           </p>
           <p className="text-[#cdcdcd] text-2xl pt-8 pb-16">
             <span>
-              The Code Sensei is an advanced code search engine <br /> designed
-              to revolutionize the way developers <br /> discover relevant code
-              snippets.
+              The Code Sensei is an advanced code search
+              engine <br /> designed to revolutionize the way developers 
+              discover <br />relevant code snippets.
             </span>
           </p>
           <Theme>
-            <Button color="blue" size="4">Get Started</Button>
+            <Button color="blue" size="4">
+              Get Started
+            </Button>
           </Theme>
         </div>
-
-        <div className="pl-28">
+        <div className="rounded-[50%] bg-skyblue [filter:blur(300px)] w-[100px]" />
+        <div className="pl-16">
           <Image
             src={Illustration}
             alt="Illustration"
@@ -37,7 +39,6 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="absolute top-[850px] left-[500px] rounded-[50%] bg-skyblue [filter:blur(500px)] w-[512px] h-[495px]" />
     </div>
   );
 }
