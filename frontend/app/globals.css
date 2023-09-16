@@ -3,5 +3,8 @@
 @tailwind utilities;
 
 body{
-  padding: 3rem 5rem;
+  padding: 3rem 7rem;
+}
+Button{
+  color: #0089ED;
 }

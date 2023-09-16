@@ -28,7 +28,7 @@ const config: Config = {
       colors:{
       transparent: 'transparent',
       'midnight': '#04101D',
-      'midBlue': '#0089ED',
+      'midBlue': '#0090FF',
       'skyblue': '#00EAF9',
       'white': '#ffffff',
       'textGrey': '#cdcdcd'
