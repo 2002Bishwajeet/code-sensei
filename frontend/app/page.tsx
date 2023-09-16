@@ -1,27 +1,39 @@
 import Image from 'next/image'
 import "@radix-ui/themes/styles.css";
 import Header from './components /header';
+import Illustration from '../public/Hand coding-amico.svg'
 
 export default function Home() {
   return (
     <div>
       <Header />
-      <div className="flex-row sm:flex-col py-16">
-        <div>
+      <div className="flex py-20">
+        <div className="pr-24">
           <p className=" text-white text-4xl font-semibold">
             <span>CONTEXT-ENHANCED</span>
           </p>
           <p className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-midBlue to-skyblue">
             <span>CODE SEARCH ENGINE</span>
           </p>
-          <p className='text-[#cdcdcd] text-2xl pt-8'>
+          <p className="text-[#cdcdcd] text-2xl pt-8">
             <span>
-              The Code Sensei is an advanced code search engine <br /> designed to 
-              revolutionize the way developers <br /> discover relevant code snippets.
+              The Code Sensei is an advanced code search engine <br /> designed
+              to revolutionize the way developers <br /> discover relevant code
+              snippets.
             </span>
           </p>
         </div>
+
+        <div className="pl-24">
+          <Image
+            src={Illustration}
+            alt="Illustration"
+            width={400}
+            height={400}
+          />
+        </div>
       </div>
+      {/* <div className="absolute top-[967px] left-[608px] rounded-[50%] bg-skyblue [filter:blur(500px)] w-[512px] h-[495px]" /> */}
     </div>
   );
 }
