@@ -1,13 +1,29 @@
 import Image from 'next/image'
 import "@radix-ui/themes/styles.css";
-import header from './components /header';
+import Header from './components /header';
 
 export default function Home() {
   return (
     <div>
-      <header/>
+      <Header />
+      <div className="flex-row sm:flex-col py-16">
+        <div>
+          <p className=" text-white text-4xl font-semibold">
+            <span>CONTEXT-ENHANCED</span>
+          </p>
+          <p className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-midBlue to-skyblue">
+            <span>CODE SEARCH ENGINE</span>
+          </p>
+          <p className='text-[#cdcdcd] text-2xl pt-8'>
+            <span>
+              The Code Sensei is an advanced code search engine <br /> designed to 
+              revolutionize the way developers <br /> discover relevant code snippets.
+            </span>
+          </p>
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 // <div className="relative bg-gray w-full h-[1117px] overflow-hidden text-left text-[60px] text-white font-sf-pro">
     //   <div className="absolute top-[304px] left-[159px] inline-block w-[813px] h-[401px] [text-shadow:0px_4px_4px_rgba(0,_0,_0,_0.25)]">
