@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Header from './components /header';
+import Footer from './components /footer';
 import "@radix-ui/themes/styles.css";
 import {Button, Theme} from '@radix-ui/themes';
 import Illustration from '../public/Hand coding-amico.svg'
@@ -8,7 +9,7 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <div className="flex py-20">
+      <div className="flex px-28 py-14">
         <div className="pr-16">
           <p className=" text-white text-4xl font-semibold">
             <span>CONTEXT-ENHANCED</span>
@@ -18,14 +19,14 @@ export default function Home() {
           </p>
           <p className="text-[#cdcdcd] text-2xl pt-8 pb-16">
             <span>
-              The Code Sensei is an advanced code search
-              engine <br /> designed to revolutionize the way developers 
-              discover <br />relevant code snippets.
+              The Code Sensei is an advanced code search engine <br /> designed
+              to revolutionize the way developers discover <br />
+              relevant code snippets.
             </span>
           </p>
           <Theme>
             <Button color="blue" size="4">
-              Get Started
+              <a href="/home">Get Started</a>
             </Button>
           </Theme>
         </div>
@@ -39,6 +40,7 @@ export default function Home() {
           />
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

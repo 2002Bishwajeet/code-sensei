@@ -1,10 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body{
-  padding: 3rem 7rem;
-}
-Button{
-  color: #0089ED;
-}
