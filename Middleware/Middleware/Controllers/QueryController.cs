@@ -6,8 +6,8 @@ namespace Middleware.Controllers;
 [Route("[controller]")]
 public class QueryController : ControllerBase
 {
-    [HttpPost( "PostQuery")]
-    public IActionResult PostQuery([FromBody] string query)
+    [HttpGet( "PostQuery")]
+    public IActionResult PostQuery(string query)
     {
         return Ok();
     }

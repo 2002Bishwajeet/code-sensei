@@ -6,8 +6,8 @@ namespace Middleware.Controllers;
 [Route("[controller]")]
 public class RepositoryController : ControllerBase
 {
-    [HttpPost( "getRepository")]
-    public IActionResult GetRepository([FromBody] string url)
+    [HttpGet( "getRepository")]
+    public IActionResult GetRepository(string url)
     {
         return Ok();
     }
