@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import logo from '../../public/horizontal_text_logo_nobg.png'
+import logo from '../public/horizontal_text_logo_nobg.png'
 
 const Header = () => {
   return (
