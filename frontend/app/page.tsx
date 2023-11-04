@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Header from "../components /header";
-import Footer from "../components /footer";
+import Header from "../components/header";
+import Footer from "../components/footer";
 import "@radix-ui/themes/styles.css";
 import { Button, Theme } from "@radix-ui/themes";
 import Illustration from "../public/Hand coding-amico.svg";
