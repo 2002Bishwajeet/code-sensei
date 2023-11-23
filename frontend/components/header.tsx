@@ -3,7 +3,7 @@ import logo from '../public/horizontal_text_logo_nobg.png'
 
 const Header = () => {
   return (
-    <div className='px-28 py-14'>
+    <div className='px-32 py-14'>
         <Image 
             src={logo}
             alt='logo'

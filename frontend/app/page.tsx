@@ -8,39 +8,41 @@ import Illustration from "../public/Hand coding-amico.svg";
 export default function Home() {
   return (
     <div>
-      <Header />
-      <div className="flex px-28 ">
-        <div className="pr-28 py-4">
-          <p className=" text-white text-4xl font-semibold">
-            <span>CONTEXT-ENHANCED</span>
-          </p>
-          <p className="text-5xl drop-shadow-md font-bold text-transparent bg-clip-text bg-gradient-to-r from-midBlue to-skyblue">
-            <span>CODE SEARCH ENGINE</span>
-          </p>
-          <p className="text-[#cdcdcd] text-2xl pt-8 pb-24">
-            <span>
-              The Code Sensei is an advanced code search engine <br /> designed
-              to revolutionize the way developers discover <br />
-              relevant code snippets.
-            </span>
-          </p>
-          <Theme>
-            <Button color="blue" size="4">
-              <a href="/home">Get Started</a>
-            </Button>
-          </Theme>
+      <div className="min-h-screen w-full">
+        <Header />
+        <div className="flex justify-center items-center">
+          <div className="pr-28 py-4">
+            <p className=" text-white text-4xl font-semibold">
+              <span>CONTEXT-ENHANCED</span>
+            </p>
+            <p className="text-5xl drop-shadow-md font-bold text-transparent bg-clip-text bg-gradient-to-r from-midBlue to-skyblue">
+              <span>CODE SEARCH ENGINE</span>
+            </p>
+            <p className="text-[#cdcdcd] text-2xl pt-8 pb-24">
+              <span>
+                The Code Sensei is an advanced code search engine <br />{" "}
+                designed to revolutionize the way developers discover <br />
+                relevant code snippets.
+              </span>
+            </p>
+            <Theme>
+              <Button color="blue" size="4">
+                <a href="/home">Get Started</a>
+              </Button>
+            </Theme>
+          </div>
+          <div className="pl-28">
+            <Image
+              src={Illustration}
+              alt="Illustration"
+              width={400}
+              height={400}
+            />
+          </div>
         </div>
-        <div className="pl-28">
-          <Image
-            src={Illustration}
-            alt="Illustration"
-            width={400}
-            height={400}
-          />
-        </div>
+        <div className="rounded-[50%] bg-skyblue [filter:blur(300px)] h-[100px]" />
+        {/* <Footer /> */}
       </div>
-      <div className="rounded-[50%] bg-skyblue [filter:blur(300px)] h-[100px]" />
-      {/* <Footer /> */}
     </div>
   );
 }
