@@ -34,6 +34,9 @@ const config: Config = {
       'textGrey': '#cdcdcd'
       }
     },
+    minHeight: {
+      '1/2': '50%',
+    },
     fontSize: {
       "21xl": "40px",
       inherit: "inherit",
