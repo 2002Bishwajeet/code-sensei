@@ -1,8 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-input{
-    background-color: gray;
-    border-radius: 0.3rem;
-}
