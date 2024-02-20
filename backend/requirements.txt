@@ -1,5 +1,0 @@
-fastapi==0.103.1
-torch
-fairscale
-fire
-sentencepiece
