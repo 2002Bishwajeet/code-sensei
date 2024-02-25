@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{html,js}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     screens: {
       'sm': '640px',
@@ -14,7 +17,8 @@ export default {
     'green': '#C8FFD4',
     'blue': '#B8E8FC',
     'purple': '#B1AFFF',
-    'orange': '#FFA800'
+    'orange': '#FFA800',
+    'bgYellow': '#FFFFF1',
     },
     fontFamily: {
       'sans': 'Public Sans',
