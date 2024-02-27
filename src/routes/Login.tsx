@@ -4,9 +4,6 @@ export const Login = () => {
       <div className="flex w-1/2 justify-center place-items-center">
         <img src="src/assets/login.svg" className="w-2/3"></img>
       </div>
-
-     
-
         <div className="flex w-1/2 flex-col items-center">
             <div className="flex justify-between w-2/4 mb-1">
                 <p>New to Code Sensei?</p>
@@ -18,15 +15,13 @@ export const Login = () => {
             <button type="button" className="w-2/4 mb-2 mt-2 py-2 bg-purple border font-bold shadow-m">Login</button>
 
             <div className="flex">
-            <div className='border-solid border-b-8'></div>
-            <p className="font-bold">OR</p>
-            <div></div>
+              <div></div>
+              <p className="font-bold">OR</p>
+              <div></div>
             </div>
-
             <button type="button" className="w-2/4 mb-2 mt-2 py-2 px-3 bg-green border font-bold shadow-m">Login with OAuth</button>
         </div>  
-          </div>
-    
+      </div>
   );
 };
 

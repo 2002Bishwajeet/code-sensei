@@ -16,6 +16,7 @@ export default {
       purple: "#B1AFFF",
       orange: "#FFA800",
       bgYellow: "#FFFFF1",
+      white : "#FFFFFF",
     },
     fontFamily: {
       sans: ['"Public Sans"'],
