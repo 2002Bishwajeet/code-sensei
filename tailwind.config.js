@@ -21,7 +21,7 @@ export default {
     'bgYellow': '#FFFFF1',
     },
     fontFamily: {
-      'sans': ['"Public Sans"',...defaultTheme.fontFamily.sans],
+      'sans': ['"Public Sans"'],
       'body': 'Archivo',
     },
     extend: {},
