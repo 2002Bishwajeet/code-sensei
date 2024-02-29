@@ -81,7 +81,7 @@ const InputField = (props: {
     <div className="flex flex-row border w-2/4 mb-2 py-2 px-3 text-gray-700 font-bold bg-white shadow-m">
       <img src={props.imageSrc} className="mr-2 w-6 h-7" alt={props.label} />
       <input
-        className="w-5/6"
+        className="w-5/6 outline-none"
         type={props.type}
         placeholder={props.placeholder}
         value={props.value}
