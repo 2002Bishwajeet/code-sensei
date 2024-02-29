@@ -7,8 +7,8 @@ export const Login = () => {
         alt="image"
       />
       <img
-        className="h-52 absolute object-right-top -right-28"
-        src="src/assets/illustration_topright_login.svg"
+        className="h-40 absolute object-right-top right-0"
+        src="src/assets/Illustration_topright_login.svg"
         alt="image"
       />
       <img
@@ -17,7 +17,7 @@ export const Login = () => {
         alt="image"
       />
       <img
-        className="h-16 absolute bottom-10 left-1/3"
+        className="h-16 absolute bottom-4 left-1/3"
         src="src/assets/Illustration_bottom_login.svg"
         alt="image"
       />
