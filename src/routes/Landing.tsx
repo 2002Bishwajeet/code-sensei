@@ -22,11 +22,11 @@ export const Landing =  () => {
             alt="image"
          />
          <div className="absolute flex gap-4 items-center top-14 right-16">
-            <div className="text-2xl font-bold">About Us</div>
+            <div className="text-xl font-bold">About Us</div>
             <button
                 type="button"
-                className=" flex mb-2 w-40 h-11 py-1 text-3xl bg-purple border font-bold shadow-m">
-                <img className="h-9 ml-2 mr-2" src="src/assets/github.svg"/>
+                className=" flex mb-2 w-32 h-10 py-1 text-2xl bg-purple border font-bold shadow-m">
+                <img className="h-8 ml-1 mr-1" src="src/assets/github.svg"/>
                 Github
             </button>
          </div>
