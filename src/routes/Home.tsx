@@ -17,10 +17,22 @@ export const Home = () => {
         alt="image"
       />
       <div className="flex">
-        <img src="src/assets/logo.svg" alt="logo" className="left-10" />
-        <img src="src/assets/Avatar.svg" alt="logo" className="right-4" />
+        <div className="flex-auto">
+          <img
+            src="src/assets/logo.svg"
+            alt="logo"
+            className="mt-4 ml-10 h-20"
+          />
+        </div>
+        <div className="flex-auto h-16">
+          <img
+            src="src/assets/Avatar.svg"
+            alt="logo"
+            className="absolute right-10 top-4 h-16"
+          />
+        </div>
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center pt-16">
         <InputField
           label=""
           type="text"
