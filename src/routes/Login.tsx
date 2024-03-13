@@ -1,3 +1,5 @@
+import { Divider } from "../components/Divider";
+
 export const Login = () => {
   return (
     <div className="w-screen h-screen bg-bgYellow">
@@ -53,9 +55,9 @@ export const Login = () => {
           </button>
 
           <div className="flex place-items-center">
-            <div className="border w-36 h-0"></div>
+            <Divider />
             <p className="font-bold px-4">OR</p>
-            <div className="border w-36 h-0"></div>
+            <Divider />
           </div>
           <button
             type="button"
