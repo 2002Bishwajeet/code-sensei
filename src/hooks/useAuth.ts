@@ -11,7 +11,10 @@ export const useAuth = () => {
   >(null);
 
   const login = async (email: string, password: string) => {
-    return await account.createEmailSession(email, password);
+    return await account.createEmailSession(email, password).then((value) => {
+      setAuthenticationState(null);
+      return value;
+    });
   };
 
   const getAuthStatus = useCallback(async () => {
@@ -27,15 +30,17 @@ export const useAuth = () => {
   }, [account]);
 
   useEffect(() => {
-    getAuthStatus();
-  }, [getAuthStatus]);
+    console.log("authenticationState now", authenticationState);
+    if (authenticationState === null) getAuthStatus();
+  }, [authenticationState, getAuthStatus]);
 
   const signUp = async (email: string, password: string, name: string) => {
     return await account.create(email, password, name);
   };
 
   const loginWithAuth0 = () => {
-    return account.createOAuth2Session("auth0", `${window.location.href}/home`);
+    setAuthenticationState(null);
+    return account.createOAuth2Session("auth0", `${window.location.href}/`);
   };
 
   return {

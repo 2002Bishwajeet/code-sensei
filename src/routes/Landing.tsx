@@ -1,4 +1,12 @@
+import { Link, Navigate } from "react-router-dom";
+import { GITHUB_URL } from "../utils/constants";
+import { useAuth } from "../hooks/useAuth";
+
 export const Landing = () => {
+  const { isAuthenticated } = useAuth();
+  if (isAuthenticated) {
+    return <Navigate to="/main" />;
+  }
   //TODO: Change Landing to Home
   return (
     <div className="w-screen h-screen bg-bgYellow">
@@ -27,6 +35,9 @@ export const Landing = () => {
         <button
           type="button"
           className=" flex mb-2 w-28 h-9 py-1 text-xl bg-purple border font-bold shadow-m"
+          onClick={() => {
+            return window.open(GITHUB_URL, "_blank");
+          }}
         >
           <img className="h-7 ml-1 mr-1" src="src/assets/github.svg" />
           Github
@@ -48,12 +59,14 @@ export const Landing = () => {
         </div>
       </div>
       <div className="absolute bottom-1/4 left-20">
-        <button
-          type="button"
-          className="mb-2 w-80 h-14 mt-2 py-1 text-3xl bg-blue border font-bold shadow-m"
-        >
-          Get started
-        </button>
+        <Link to="/login">
+          <button
+            type="button"
+            className="mb-2 w-80 h-14 mt-2 py-1 text-3xl bg-blue border font-bold shadow-m"
+          >
+            Get started
+          </button>
+        </Link>
       </div>
     </div>
   );

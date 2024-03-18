@@ -38,6 +38,7 @@ function App() {
 
 const ProtectedRoutes = ({ children }: { children: ReactNode }) => {
   const { isAuthenticated } = useAuth();
+  console.log("isAuthenticated", isAuthenticated);
   if (!isAuthenticated) {
     console.log(window.location.pathname);
     if (window.location.pathname === AUTH_PATH) {
