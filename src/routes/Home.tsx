@@ -1,4 +1,5 @@
 export const Home = () => {
+  //TODO: Change HOme to Dashboard
   return (
     <div className="w-screen h-screen bg-bgYellow">
       <img

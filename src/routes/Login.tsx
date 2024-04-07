@@ -1,4 +1,22 @@
+import { useCallback, useState } from "react";
+import { Divider } from "../components/Divider";
+import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+
 export const Login = () => {
+  const [form, setform] = useState({
+    email: "",
+    password: "",
+  });
+  const { login, loginWithAuth0 } = useAuth();
+  const navigate = useNavigate();
+  const loginWithEmail = useCallback(async () => {
+    if (!form.email && !form.password) {
+      console.error("Email and password are required");
+    }
+    await login(form.email, form.password);
+    navigate("/", { replace: true });
+  }, [form.email, form.password, login, navigate]);
   return (
     <div className="w-screen h-screen bg-bgYellow">
       <img
@@ -34,32 +52,38 @@ export const Login = () => {
             label=""
             type="text"
             placeholder="Email"
-            onChange={() => {}}
+            onChange={(e) => {
+              setform({ ...form, email: e.target.value });
+            }}
             imageSrc="src/assets/mailIcon.svg"
           />
           <InputField
             label=""
             type="text"
             placeholder="Password"
-            onChange={() => {}}
+            onChange={(e) => {
+              setform({ ...form, password: e.target.value });
+            }}
             imageSrc="src/assets/lockIcon.svg"
           />
 
           <button
             type="button"
             className="w-2/4 mb-2 mt-2 py-2 bg-purple border font-bold shadow-m"
+            onClick={loginWithEmail}
           >
             Login
           </button>
 
           <div className="flex place-items-center">
-            <div className="border w-36 h-0"></div>
+            <Divider />
             <p className="font-bold px-4">OR</p>
-            <div className="border w-36 h-0"></div>
+            <Divider />
           </div>
           <button
             type="button"
             className="w-2/4 mb-2 mt-2 py-2 px-3 bg-green border font-bold shadow-m"
+            onClick={loginWithAuth0}
           >
             Login with OAuth
           </button>
