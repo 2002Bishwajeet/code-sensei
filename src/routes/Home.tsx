@@ -29,7 +29,7 @@ export const Home = () => {
           />
         </div>
       </div>
-      <div className="flex justify-center pt-16">
+      <div className="flex justify-center items-center  pt-16">
         <InputField
           label=""
           type="text"
@@ -55,7 +55,7 @@ const InputField = (props: {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) => {
   return (
-    <div className="border w-2/4 mb-2 px-3 text-gray-700 font-bold bg-white shadow-m">
+    <div className="border w-2/4 px-3 text-gray-700 font-bold bg-white shadow-m">
       <input
         className="w-5/6 py-2 outline-none"
         type={props.type}
