@@ -8,8 +8,10 @@ export const Login = () => {
     email: "",
     password: "",
   });
+
   const { login, loginWithAuth0 } = useAuth();
   const navigate = useNavigate();
+
   const loginWithEmail = useCallback(async () => {
     if (!form.email && !form.password) {
       console.error("Email and password are required");
@@ -21,27 +23,27 @@ export const Login = () => {
     <div className="w-screen h-screen bg-bgYellow">
       <img
         className="h-28 absolute top-8 left-16"
-        src="src/assets/illustration_topleft_login.svg"
+        src="/assets/illustration_topleft_login.svg"
         alt="image"
       />
       <img
         className="h-40 absolute object-right-top right-0"
-        src="src/assets/Illustration_topright_login.svg"
+        src="/assets/Illustration_topright_login.svg"
         alt="image"
       />
       <img
         className="h-40 absolute bottom-0 right-0"
-        src="src/assets/Illustration_rightcorner_login.svg"
+        src="/assets/Illustration_rightcorner_login.svg"
         alt="image"
       />
       <img
         className="h-16 absolute bottom-4 left-1/3"
-        src="src/assets/Illustration_bottom_login.svg"
+        src="/assets/Illustration_bottom_login.svg"
         alt="image"
       />
       <div className="flex place-items-center h-screen w-screen">
         <div className="flex w-1/2 justify-center place-items-center">
-          <img src="src/assets/login.svg" className="w-2/3"></img>
+          <img src="/assets/login.svg" className="w-2/3"></img>
         </div>
         <div className="flex w-1/2 flex-col items-center">
           <div className="flex justify-between w-2/4 mb-1">
@@ -55,7 +57,7 @@ export const Login = () => {
             onChange={(e) => {
               setform({ ...form, email: e.target.value });
             }}
-            imageSrc="src/assets/mailIcon.svg"
+            imageSrc="/assets/mailIcon.svg"
           />
           <InputField
             label=""
@@ -64,7 +66,7 @@ export const Login = () => {
             onChange={(e) => {
               setform({ ...form, password: e.target.value });
             }}
-            imageSrc="src/assets/lockIcon.svg"
+            imageSrc="/assets/lockIcon.svg"
           />
 
           <button

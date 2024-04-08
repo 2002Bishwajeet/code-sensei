@@ -1,11 +1,8 @@
-import { Account } from "appwrite";
-import { useClient } from "./useClient";
-import { useCallback, useEffect, useMemo, useState } from "react";
+
+import { useCallback, useEffect, useState } from "react";
+import { account } from "../utils/config";
 
 export const useAuth = () => {
-  const client = useClient();
-  const account: Account = useMemo(() => new Account(client), [client]);
-
   const [authenticationState, setAuthenticationState] = useState<
     "notAuthenticated" | "Authenticated" | null
   >(null);
@@ -27,10 +24,10 @@ export const useAuth = () => {
       console.error("error authenticating", error);
       setAuthenticationState("notAuthenticated");
     }
-  }, [account]);
+  }, []);
 
   useEffect(() => {
-    console.log("authenticationState now", authenticationState);
+    console.debug("authenticationState now", authenticationState);
     if (authenticationState === null) getAuthStatus();
   }, [authenticationState, getAuthStatus]);
 

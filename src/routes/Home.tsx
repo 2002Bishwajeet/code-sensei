@@ -4,30 +4,26 @@ export const Home = () => {
     <div className="w-screen h-screen bg-bgYellow">
       <img
         className="absolute h-screen right-0"
-        src="src/assets/Background_homepagepng.png"
+        src="/assets/Background_homepagepng.png"
         alt="image"
       />
       <img
         className="absolute bottom-10 left-10 h-12"
-        src="src/assets/left_bottom_homepage.svg"
+        src="/assets/left_bottom_homepage.svg"
         alt="image"
       />
       <img
         className="absolute bottom-10 right-10 h-20"
-        src="src/assets/right_bottom_homepage.svg"
+        src="/assets/right_bottom_homepage.svg"
         alt="image"
       />
       <div className="flex">
         <div className="flex-auto">
-          <img
-            src="src/assets/logo.svg"
-            alt="logo"
-            className="mt-4 ml-10 h-20"
-          />
+          <img src="/assets/logo.svg" alt="logo" className="mt-4 ml-10 h-20" />
         </div>
         <div className="flex-auto h-16">
           <img
-            src="src/assets/Avatar.svg"
+            src="/assets/Avatar.svg"
             alt="logo"
             className="absolute right-10 top-4 h-16"
           />
