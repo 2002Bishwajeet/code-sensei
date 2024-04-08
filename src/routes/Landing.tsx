@@ -1,13 +1,7 @@
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { GITHUB_URL } from "../utils/constants";
-import { useAuth } from "../hooks/useAuth";
 
 export const Landing = () => {
-  const { isAuthenticated } = useAuth();
-  if (isAuthenticated) {
-    return <Navigate to="/main" />;
-  }
-  //TODO: Change Landing to Home
   return (
     <div className="w-screen h-screen bg-bgYellow">
       <img

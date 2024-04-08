@@ -8,8 +8,10 @@ export const Login = () => {
     email: "",
     password: "",
   });
+
   const { login, loginWithAuth0 } = useAuth();
   const navigate = useNavigate();
+
   const loginWithEmail = useCallback(async () => {
     if (!form.email && !form.password) {
       console.error("Email and password are required");
