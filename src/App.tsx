@@ -4,6 +4,7 @@ import { Home } from "./routes/Home";
 import { Landing } from "./routes/Landing";
 import { ReactNode } from "react";
 import { useAuthContext } from "./context/AuthContext";
+import { Chat } from "./routes/Chat";
 
 const AUTH_PATH = "/login";
 
@@ -13,6 +14,7 @@ function App() {
       <Route element={<PublicLayout />}>
         <Route path="/about" element={<Landing />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/chat" element={<Chat />} />
       </Route>
       <Route
         path=""
