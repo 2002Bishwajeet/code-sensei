@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 export const Chat = () => {
+  const navigation = useNavigate();
   return (
     <div className="w-screen h-screen bg-bgYellow">
       <img
@@ -53,4 +56,3 @@ export const Chat = () => {
     </div>
   );
 };
-

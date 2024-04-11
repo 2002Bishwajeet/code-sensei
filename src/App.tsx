@@ -2,11 +2,8 @@ import { Navigate, Outlet, Route, Routes } from "react-router-dom";
 import { Login } from "./routes/Login";
 import { Home } from "./routes/Home";
 import { Landing } from "./routes/Landing";
-import { ReactNode } from "react";
 import { useAuthContext } from "./context/AuthContext";
 import { Chat } from "./routes/Chat";
-
-const AUTH_PATH = "/login";
 
 function App() {
   return (
@@ -14,35 +11,24 @@ function App() {
       <Route element={<PublicLayout />}>
         <Route path="/about" element={<Landing />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/chat" element={<Chat />} />
       </Route>
-      <Route
-        path=""
-        element={
-          <RootRouter>
-            <Outlet />
-          </RootRouter>
-        }
-      >
-        <Route path="" element={<Home />} />
+      <Route path="" element={<RootRouter />}>
+        <Route index element={<Home />} />
+        <Route path="/chat" element={<Chat />} />
       </Route>
     </Routes>
   );
 }
 
-const RootRouter = ({ children }: { children: ReactNode }) => {
+const RootRouter = () => {
   const isAuthenticated = useAuthContext();
   console.debug("Root Router isAuthenticated", isAuthenticated);
   if (!isAuthenticated) {
     console.debug("Not Authenticated", window.location.pathname);
-    if (window.location.pathname === AUTH_PATH) {
-      return <>{children}</>;
-    }
-    console.log("Redirecting to /login");
 
     return <Navigate to={`/about`} />;
   }
-  return <>{children}</>;
+  return <Outlet />;
 };
 
 const PublicLayout = () => {
