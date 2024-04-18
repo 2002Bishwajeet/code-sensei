@@ -10,7 +10,7 @@ export const Landing = () => {
         alt="image"
       />
       <img
-        className="absolute h-48 w-68 bottom-6 left-2/4"
+        className="absolute h-24 w-60 bottom-6 left-2/4"
         src="/assets/bottom2.svg"
         alt="image"
       />
