@@ -1,4 +1,12 @@
+import classNames from "classnames";
 import { useState } from "react";
+
+interface IMessage {
+  user: User;
+  content: string;
+}
+
+type User = "user" | "bot";
 
 export const Chat = () => {
   // useEffect(() => {
@@ -9,9 +17,10 @@ export const Chat = () => {
   //   }
   // }, [third])
   const [loading, setLoading] = useState(false);
-
+  const [messages, setMessages] = useState<IMessage[]>([]);
   const sendChat = async (input: string) => {
-    console.log("Sencd Chat called");
+    setMessages([...messages, { user: "user", content: input }]);
+    console.log("Send Chat called");
     setLoading(true);
     const response = await fetch(
       new URL("https://api.runpod.ai/v2/mpnlge4vkgddpo/runsync"),
@@ -25,11 +34,12 @@ export const Chat = () => {
           input: {
             prompt: input,
             sampling_params: {
-              max_tokens: 1000,
+              max_tokens: 500,
               n: 1,
-              presence_penalty: 0.2,
+              presence_penalty: 1.2,
               frequency_penalty: 0.7,
-              temperature: 0.3,
+              temperature: 0.6,
+              top_p: 0.8,
             },
           },
         }),
@@ -37,7 +47,17 @@ export const Chat = () => {
     );
     setLoading(false);
     const data = await response.json();
+    setMessages((old) => [
+      ...old,
+      { user: "bot", content: data.output.text[0] },
+    ]);
     console.log(data);
+  };
+
+  const renderMessages = () => {
+    return messages.map((message) => (
+      <ChatMessageBubble key={message.content} message={message} />
+    ));
   };
 
   return (
@@ -71,6 +91,8 @@ export const Chat = () => {
 
       {/* the chat send box */}
       <div className="flex flex-col relative h-4/5 ">
+        {renderMessages()}
+
         {loading && (
           <div className="flex justify-center items-center h-4/5">
             <p> Loading</p>
@@ -105,6 +127,33 @@ export const Chat = () => {
               />
             </button>
           </form>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ChatMessageBubble = ({ message }: { message: IMessage }) => {
+  const { user, content } = message;
+  const isMe = user === "user";
+  const avatarStyle = classNames("m-2 p-2 border shadow-m", {
+    "bg-white": isMe,
+    "bg-blue": !isMe,
+  });
+  const bubblePositionStyle = classNames("flex items-center", {
+    "justify-start": isMe,
+    "justify-end": !isMe,
+  });
+  return (
+    <div className="flex flex-col h-4/5 overflow-y-scroll">
+      <div className={bubblePositionStyle}>
+        {isMe ? (
+          <img src="src/assets/User_avatar.svg" alt="Avatar" className="h-12" />
+        ) : (
+          <img src="src/assets/Bot_avvatar.svg" alt="Avatar" className="h-12" />
+        )}
+        <div className={avatarStyle}>
+          <p>{content}</p>
         </div>
       </div>
     </div>

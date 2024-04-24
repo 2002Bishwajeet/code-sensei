@@ -12,7 +12,7 @@ function App() {
         <Route path="/about" element={<Landing />} />
         <Route path="/login" element={<Login />} />
       </Route>
-      <Route path="" element={<RootRouter />}>
+      <Route path="">
         <Route index element={<Home />} />
         <Route path="/chat" element={<Chat />} />
       </Route>
@@ -20,16 +20,16 @@ function App() {
   );
 }
 
-const RootRouter = () => {
-  const isAuthenticated = useAuthContext();
-  console.debug("Root Router isAuthenticated", isAuthenticated);
-  if (!isAuthenticated) {
-    console.debug("Not Authenticated", window.location.pathname);
+// const RootRouter = () => {
+//   const isAuthenticated = useAuthContext();
+//   console.debug("Root Router isAuthenticated", isAuthenticated);
+//   if (!isAuthenticated) {
+//     console.debug("Not Authenticated", window.location.pathname);
 
-    return <Navigate to={`/about`} />;
-  }
-  return <Outlet />;
-};
+//     return <Navigate to={`/about`} />;
+//   }
+//   return <Outlet />;
+// };
 
 const PublicLayout = () => {
   const authenticated = useAuthContext();
