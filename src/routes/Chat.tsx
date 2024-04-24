@@ -9,13 +9,6 @@ interface IMessage {
 type User = "user" | "bot";
 
 export const Chat = () => {
-  // useEffect(() => {
-  //   // fetch(new URL('https://api.runpod.ai/v2/mpnlge4vkgddpo/runsync'),)
-
-  //   return () => {
-  //     second
-  //   }
-  // }, [third])
   const [loading, setLoading] = useState(false);
   const [messages, setMessages] = useState<IMessage[]>([]);
   const sendChat = async (input: string) => {
@@ -34,12 +27,14 @@ export const Chat = () => {
           input: {
             prompt: input,
             sampling_params: {
-              max_tokens: 500,
+              max_tokens: 1000,
               n: 1,
               presence_penalty: 1.2,
               frequency_penalty: 0.7,
               temperature: 0.6,
               top_p: 0.8,
+              stop: ["USER"],
+              ignore_eos: false,
             },
           },
         }),
