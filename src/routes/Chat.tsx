@@ -86,11 +86,18 @@ export const Chat = () => {
 
       {/* the chat send box */}
       <div className="flex flex-col relative h-4/5">
-        <div className="flex flex-col h-[90%] w-1/2 place-self-center overflow-y-auto">
+        <div className="flex flex-col h-[90%] w-1/2 place-self-center overflow-y-auto no-scrollbar">
           {renderMessages()}
           {loading && (
-            <div className="flex justify-center items-center h-4/5">
-              <p> Loading</p>
+            <div className="flex justify-start">
+              <img
+                src="src/assets/Bot_avvatar.svg"
+                alt="Avatar"
+                className="h-12"
+              />
+              <div className="bg-blue p-2 m-2 border shadow-m max-w-96">
+                <p>...</p>
+                </div>
             </div>
           )}
         </div>
@@ -137,8 +144,8 @@ const ChatMessageBubble = ({ message }: { message: IMessage }) => {
     "bg-blue": !isMe,
   });
   const bubblePositionStyle = classNames("flex items-center", {
-    "justify-start": isMe,
-    "justify-end": !isMe,
+    "justify-start": !isMe,
+    "flex-row-reverse place-self-end": isMe,
   });
   return (
     <div className="flex flex-col">
