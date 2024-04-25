@@ -85,14 +85,15 @@ export const Chat = () => {
       </div>
 
       {/* the chat send box */}
-      <div className="flex flex-col relative h-4/5 ">
-        {renderMessages()}
-
-        {loading && (
-          <div className="flex justify-center items-center h-4/5">
-            <p> Loading</p>
-          </div>
-        )}
+      <div className="flex flex-col relative h-4/5">
+        <div className="flex flex-col h-[90%] w-1/2 place-self-center overflow-y-auto">
+          {renderMessages()}
+          {loading && (
+            <div className="flex justify-center items-center h-4/5">
+              <p> Loading</p>
+            </div>
+          )}
+        </div>
         <div className="flex justify-center absolute inset-x-0 bottom-0">
           <form className="flex items-center w-1/2 border px-3 py-2 text-gray-700 font-bold bg-white shadow-m">
             <input
@@ -140,14 +141,14 @@ const ChatMessageBubble = ({ message }: { message: IMessage }) => {
     "justify-end": !isMe,
   });
   return (
-    <div className="flex flex-col h-4/5 overflow-y-scroll">
+    <div className="flex flex-col">
       <div className={bubblePositionStyle}>
         {isMe ? (
           <img src="src/assets/User_avatar.svg" alt="Avatar" className="h-12" />
         ) : (
           <img src="src/assets/Bot_avvatar.svg" alt="Avatar" className="h-12" />
         )}
-        <div className={avatarStyle}>
+        <div className={`${avatarStyle} max-w-96`}>
           <p>{content}</p>
         </div>
       </div>
