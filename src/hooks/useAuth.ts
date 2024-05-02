@@ -37,7 +37,7 @@ export const useAuth = () => {
 
   const loginWithAuth0 = () => {
     setAuthenticationState(null);
-    return account.createOAuth2Session("auth0", `${window.location.hostname}/`);
+    return account.createOAuth2Session("auth0", `https://${window.location.hostname}/`);
   };
 
   return {
