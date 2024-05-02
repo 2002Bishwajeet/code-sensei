@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 export const Home = () => {
   //TODO: Change HOme to Dashboard
+  const navigation = useNavigate();
   return (
     <div className="w-screen h-screen bg-bgYellow">
       <img
-        className="absolute h-screen right-0"
+        className="absolute h-screen right-0 z-1 pointer-events-none"
         src="/assets/Background_homepagepng.png"
         alt="image"
       />
@@ -38,7 +41,12 @@ export const Home = () => {
         />
         <button
           type="button"
-          className="mx-2 px-3 py-2 bg-green border font-bold shadow-m"
+          className="mx-2 px-3 py-2 bg-green border font-bold shadow-m hover:bg-green-500"
+          onClick={(e) => {
+            console.log("New chat");
+            e.preventDefault();
+            navigation("/chat");
+          }}
         >
           New chat
         </button>

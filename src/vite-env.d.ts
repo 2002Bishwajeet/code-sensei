@@ -3,6 +3,7 @@
 interface ImportMetaEnv {
     readonly VITE_PROJECTID: string
     readonly VITE_ENDPOINT: string
+    readonly VITE_RUNPODKEY: string
 
 }
 

@@ -9,7 +9,7 @@ export const useAuth = () => {
 
   const login = async (email: string, password: string) => {
     return await account.createEmailSession(email, password).then((value) => {
-      setAuthenticationState(null);
+      setAuthenticationState('Authenticated');
       return value;
     });
   };
@@ -37,7 +37,7 @@ export const useAuth = () => {
 
   const loginWithAuth0 = () => {
     setAuthenticationState(null);
-    return account.createOAuth2Session("auth0", `${window.location.href}/`);
+    return account.createOAuth2Session("auth0", `${window.location.hostname}/`);
   };
 
   return {
