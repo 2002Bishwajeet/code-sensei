@@ -147,9 +147,9 @@ const ChatMessageBubble = ({ message }: { message: IMessage }) => {
     <div className="flex flex-col">
       <div className={bubblePositionStyle}>
         {isMe ? (
-          <img src="src/assets/User_avatar.svg" alt="Avatar" className="h-12" />
+          <img src="/assets/User_avatar.svg" alt="Avatar" className="h-12" />
         ) : (
-          <img src="src/assets/Bot_avvatar.svg" alt="Avatar" className="h-12" />
+          <img src="/assets/Bot_avvatar.svg" alt="Avatar" className="h-12" />
         )}
         <div className={`${avatarStyle} max-w-96`}>
           <p>{content}</p>
