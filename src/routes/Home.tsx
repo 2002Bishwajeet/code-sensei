@@ -4,39 +4,35 @@ export const Home = () => {
   //TODO: Change HOme to Dashboard
   const navigation = useNavigate();
   return (
-    <body className="w-screen h-screen bg-bgYellow">
+    <div className="w-screen h-screen bg-bgYellow">
       <img
         className="absolute h-screen right-0 z-1 pointer-events-none"
-        src="src/assets/Background_homepagepng.png"
+        src="/assets/Background_homepagepng.png"
         alt="image"
       />
       <img
         className="absolute bottom-10 left-10 h-12"
-        src="src/assets/left_bottom_homepage.svg"
+        src="/assets/left_bottom_homepage.svg"
         alt="image"
       />
       <img
         className="absolute bottom-10 right-10 h-20"
-        src="src/assets/right_bottom_homepage.svg"
+        src="/assets/right_bottom_homepage.svg"
         alt="image"
       />
       <div className="flex">
         <div className="flex-auto">
-          <img
-            src="src/assets/logo.svg"
-            alt="logo"
-            className="mt-4 ml-10 h-20"
-          />
+          <img src="/assets/logo.svg" alt="logo" className="mt-4 ml-10 h-20" />
         </div>
         <div className="flex-auto h-16">
           <img
-            src="src/assets/Avatar.svg"
+            src="/assets/Avatar.svg"
             alt="logo"
             className="absolute right-10 top-4 h-16"
           />
         </div>
       </div>
-      <div className="flex justify-center pt-16">
+      <div className="flex justify-center items-center  pt-16">
         <InputField
           label=""
           type="text"
@@ -55,7 +51,7 @@ export const Home = () => {
           New chat
         </button>
       </div>
-    </body>
+    </div>
   );
 };
 
@@ -67,7 +63,7 @@ const InputField = (props: {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) => {
   return (
-    <div className="border w-2/4 mb-2 px-3 text-gray-700 font-bold bg-white shadow-m">
+    <div className="border w-2/4 px-3 text-gray-700 font-bold bg-white shadow-m">
       <input
         className="w-5/6 py-2 outline-none"
         type={props.type}

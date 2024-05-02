@@ -6,22 +6,22 @@ export const Landing = () => {
     <div className="w-screen h-screen bg-bgYellow">
       <img
         className="h-screen w-screen absolute"
-        src="src/assets/2.png"
+        src="/assets/2.png"
         alt="image"
       />
       <img
         className="absolute h-24 w-60 bottom-6 left-2/4"
-        src="src/assets/bottom2.svg"
+        src="/assets/bottom2.svg"
         alt="image"
       />
       <img
         className="absolute h-24 w-56 top-32 left-2/4"
-        src="src/assets/shine.svg"
+        src="/assets/shine.svg"
         alt="image"
       />
       <img
         className="absolute w-96 h-96 object-fill top-56 right-28"
-        src="src/assets/laptopImage.svg"
+        src="/assets/laptopImage.svg"
         alt="image"
       />
       <div className="absolute flex gap-4 items-center top-14 right-16">
@@ -33,7 +33,7 @@ export const Landing = () => {
             return window.open(GITHUB_URL, "_blank");
           }}
         >
-          <img className="h-7 ml-1 mr-1" src="src/assets/github.svg" />
+          <img className="h-7 ml-1 mr-1" src="/assets/github.svg" />
           Github
         </button>
       </div>
