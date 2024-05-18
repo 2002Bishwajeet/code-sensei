@@ -6,8 +6,13 @@
     "packages/frontend"
   ],
   "scripts": {
-    "web": "npm run dev  -w ./packages/frontend"
+    "web": "npm run dev  -w ./packages/frontend",
+    "llm": "fastapi dev ./packages/backend/main.py",
+    "dep": "pip install -r ./packages/backend/requirements.txt"
   },
   "author": "Code - Sensei",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dep": "^0.18.3"
+  }
 }
