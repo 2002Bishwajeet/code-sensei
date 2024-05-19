@@ -185,7 +185,14 @@ class CodeSenseiLLM(LLM):
         }
         response = requests.post(url, headers=headers, json=payload)
 
-        print(response.json())
+        response_json = response.json()
+        if (response_json["status"] == "IN_PROGRESS"):
+            res = {
+                "id": response_json["id"],
+                "status": response_json["status"],
+                "output": "Still working on it"
+            }
+            return str(res)
         return response.json()["output"]["text"][0]
 
     def _stream(

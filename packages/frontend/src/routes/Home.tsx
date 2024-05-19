@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Loader } from "../components/Loader";
 
 export const Home = () => {
   //TODO: Change HOme to Dashboard
@@ -54,7 +55,7 @@ export const Home = () => {
           }}
         />
         {loader ? (
-          <p>Loading</p>
+          <Loader loading={true} size={50} className="mx-2 px-3 py-2" />
         ) : (
           <button
             type="button"

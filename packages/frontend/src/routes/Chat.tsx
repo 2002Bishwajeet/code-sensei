@@ -1,6 +1,32 @@
 import classNames from "classnames";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import markdownit from "markdown-it";
+import hljs from "highlight.js"; // https://highlightjs.org
+
+const md = markdownit({
+  breaks: true,
+  html: false,
+  linkify: true,
+  typographer: true,
+  highlight: function (str, lang): string {
+    if (lang && hljs.getLanguage(lang)) {
+      try {
+        return (
+          '<pre><code class="hljs">' +
+          hljs.highlight(str, { language: lang, ignoreIllegals: true }).value +
+          "</code></pre>"
+        );
+      } catch (__) {
+        console.error(__);
+      }
+    }
+
+    return (
+      '<pre><code class="hljs">' + md.utils.escapeHtml(str) + "</code></pre>"
+    );
+  },
+});
 
 interface IMessage {
   user: User;
@@ -90,6 +116,7 @@ export const Chat = () => {
               type="submit"
               className="pl-3 bg-green border font-bold shadow-m"
               onClick={(e) => {
+                if (loading) return;
                 e.preventDefault();
                 const input = (
                   document.getElementById("text") as HTMLInputElement
@@ -116,25 +143,30 @@ export const Chat = () => {
 const ChatMessageBubble = ({ message }: { message: IMessage }) => {
   const { user, content } = message;
   const isMe = user === "user";
+  const renderedContent = md.render(content);
+
   const avatarStyle = classNames("m-2 p-2 border shadow-m", {
     "bg-white": isMe,
     "bg-blue": !isMe,
   });
+
   const bubblePositionStyle = classNames("flex items-center", {
     "justify-start": !isMe,
     "flex-row-reverse place-self-end": isMe,
   });
+
   return (
     <div className="flex flex-col">
       <div className={bubblePositionStyle}>
-        {isMe ? (
-          <img src="/assets/User_avatar.svg" alt="Avatar" className="h-12" />
-        ) : (
-          <img src="/assets/Bot_avvatar.svg" alt="Avatar" className="h-12" />
-        )}
-        <div className={`${avatarStyle} max-w-96`}>
-          <p>{content}</p>
-        </div>
+        <img
+          src={isMe ? "/assets/User_avatar.svg" : "/assets/Bot_avvatar.svg"}
+          alt="Avatar"
+          className="h-12"
+        />
+        <div
+          className={`${avatarStyle} max-w-full md:max-w-lg break-words whitespace-pre-wrap overflow-auto p-2`}
+          dangerouslySetInnerHTML={{ __html: renderedContent }}
+        ></div>
       </div>
     </div>
   );
