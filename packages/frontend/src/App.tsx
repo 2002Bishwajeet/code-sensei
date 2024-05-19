@@ -15,7 +15,7 @@ function App() {
 
       <Route path="" element={<RootRouter />}>
         <Route index element={<Home />} />
-        <Route path="/chat" element={<Chat />} />
+        <Route path="/chat/:repo" element={<Chat />} />
       </Route>
     </Routes>
   );

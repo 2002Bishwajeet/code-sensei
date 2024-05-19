@@ -14,8 +14,17 @@ from langchain import hub
 from langchain_core.runnables import RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
 import requests
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 inference_api_key = "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"
 embeddings = HuggingFaceInferenceAPIEmbeddings(
@@ -253,6 +262,7 @@ def getGithubUrl(url: str = Body(...)):
 
 @app.post("/{repo_name}")
 def answerQuestion(repo_name: str, question: str = Body(...)):
+    print(question)
     if repo_name not in documents:
         raise HTTPException(status_code=404, detail="Repo not found")
     loaded_documents = documents[repo_name]

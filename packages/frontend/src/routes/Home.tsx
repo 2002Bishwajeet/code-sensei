@@ -1,7 +1,19 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
   //TODO: Change HOme to Dashboard
+  const [url, seturl] = useState<string>();
+  const [loader, setLoader] = useState<boolean>(false);
+
+  const getUrl = async (url: string) => {
+    const request = await fetch(new URL("http://127.0.0.1:8000/"), {
+      method: "POST",
+      body: url,
+    });
+    const data = await request.json();
+    return data["url"];
+  };
   const navigation = useNavigate();
   return (
     <div className="w-screen h-screen bg-bgYellow">
@@ -37,19 +49,31 @@ export const Home = () => {
           label=""
           type="text"
           placeholder="Enter Github Repository URL"
-          onChange={() => {}}
-        />
-        <button
-          type="button"
-          className="mx-2 px-3 py-2 bg-green border font-bold shadow-m hover:bg-green-500"
-          onClick={(e) => {
-            console.log("New chat");
-            e.preventDefault();
-            navigation("/chat");
+          onChange={(e) => {
+            seturl(e.target.value);
           }}
-        >
-          New chat
-        </button>
+        />
+        {loader ? (
+          <p>Loading</p>
+        ) : (
+          <button
+            type="button"
+            className="mx-2 px-3 py-2 bg-green border font-bold shadow-m hover:bg-green-500"
+            onClick={async (e) => {
+              if (url) {
+                e.preventDefault();
+                setLoader(true);
+                const newURl = await getUrl(url);
+                navigation(`/chat/${newURl}`);
+                setLoader(false);
+              } else {
+                console.error("URL is empty");
+              }
+            }}
+          >
+            New chat
+          </button>
+        )}
       </div>
     </div>
   );
