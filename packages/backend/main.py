@@ -6,7 +6,7 @@ from fastapi import Body, FastAPI, HTTPException
 from git import RemoteProgress, Repo
 from langchain_community.document_loaders import DirectoryLoader
 from langchain_community.embeddings import HuggingFaceInferenceAPIEmbeddings
-from typing import Any, Dict, Iterator, List, Mapping, Optional
+from typing import Any, Dict, Iterator, List, Optional
 from langchain_core.callbacks.manager import CallbackManagerForLLMRun
 from langchain_core.language_models.llms import LLM
 from langchain_core.outputs import GenerationChunk
