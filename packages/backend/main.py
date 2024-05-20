@@ -26,7 +26,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-inference_api_key = "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"
+inference_api_key = os.environ.get("INFERENCE_API_KEY")
 embeddings = HuggingFaceInferenceAPIEmbeddings(
     api_key=inference_api_key, model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
@@ -164,10 +164,13 @@ class CodeSenseiLLM(LLM):
         if stop is not None:
             raise ValueError("stop kwargs are not permitted.")
         url = "https://api.runpod.ai/v2/mpnlge4vkgddpo/runsync"
+        key = os.environ.get("RUNPOD_API_KEY")
+        if key is None:
+            raise ValueError("Please set RUNPOD_API_KEY environment variable")
         headers = {
             "accept": "application/json",
             "content-type": "application/json",
-            "Authorization": "4U3JJ24W9T5KQB2M67FWYURZ46WG11X281415CCY",
+            "Authorization": key,
         }
         payload = {
             "input": {"prompt": prompt,
@@ -308,12 +311,6 @@ def cloneRepo(url: str):
                 new_file_path = changeFileExtension(
                     file_path, file.split(".")[-1])
                 os.rename(file_path, new_file_path)
-    # # remove all the folders that are not needed
-    # for root, dirs, files in os.walk(repo_path):
-    #     for dir in dirs:
-    #         if dir not in folders:
-    #             dir_path = os.path.join(root, dir)
-    #             shutil.rmtree(dir_path)
     return repo_path
 
 
